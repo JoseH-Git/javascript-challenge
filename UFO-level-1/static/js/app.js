@@ -1,7 +1,6 @@
-// from data.js
-var tableData = data;
 // Assign the data from `data.js` to a descriptive variable
-// var people = data;
+// from data.js
+var data = data;
 
 // YOUR CODE HERE!
 
@@ -28,26 +27,24 @@ function runEnter() {
   var inputValue = inputElement.property("value");
 
   console.log(inputValue);
-  console.log(tableData);
+  console.log(data);
 
-  var filteredData = tableData.filter(sight => sight.datetime === inputValue);
+  var filteredData = data.filter(sight => sight.datetime === inputValue);
 
   console.log(filteredData);
 };
 
-// BONUS: Refactor to use Arrow Functions!
-
 // Get a reference to the table body
 var tbody = d3.select("tbody");
 
-// Console.log the weather data from data.js
+// Console.log the sighting data from data.js
 console.log(data);
 
-data.forEach((weatherReport) => {
+data.forEach((sightingReport) => {
     var row = tbody.append("tr");
-    Object.entries(weatherReport).forEach(([key, value]) => {
+    Object.entries(sightingReport).forEach(([key, value]) => {
       var cell = row.append("td");
       cell.text(value);
     });
-  });
+});
   
