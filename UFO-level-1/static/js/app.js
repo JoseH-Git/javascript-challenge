@@ -27,11 +27,21 @@ function runEnter() {
   var inputValue = inputElement.property("value");
 
   console.log(inputValue);
-  console.log(data);
+  //console.log(data);
 
   var filteredData = data.filter(sight => sight.datetime === inputValue);
 
   console.log(filteredData);
+  $("#ufo-table tbody tr").remove(); 
+
+  filteredData.forEach((sightingReport) => {
+    var row = tbody.append("tr");
+    Object.entries(sightingReport).forEach(([key, value]) => {
+      var cell = row.append("td");
+      cell.text(value);
+    });
+});
+
 };
 
 // Get a reference to the table body
